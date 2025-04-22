@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QLTSGeek - Login</title>
+    <script src="https://kit.fontawesome.com/cd89eb3f34.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/login-page.css">
+ 
+</head>
+
+<body>
+    <!-- Main login container -->
+    <main class="login-container">
+        <!-- Header with logo -->
+        <header class="login-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i id="eye" class="fa-regular fa-eye"></i>
+                </div>
+                <span class="logo-text">QLTSGeek</span>
+            </div>
+            <button class="register-btn">Register</button>
+        </header>
+        <div class="flex-row">
+            <section class="login-section">
+                <!-- Login form -->
+                <div class="login-title">Login to your account</div>
+
+                <div class="login-subtitle">Login with</div>
+                <div class="social-login">
+                    <button class="social-btn">
+                        <i class="fa-brands fa-facebook"></i>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fa-brands fa-google"></i>
+                    </button>
+                    <button class="social-btn">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </button>
+                </div>
+
+                <form class="login-form">
+                    <div class="form-group">
+                        <input type="email" class="form-input" placeholder="Your Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="password-input-container">
+                            <input type="password" class="form-input" placeholder="Password" required>
+                            <span class="password-toggle">
+                                <i class="fa-regular fa-eye"></i>
+                            </span>
+                        </div>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+
+                    <button type="submit" class="login-btn">Log in</button>
+                </form>
+            </section>
+
+            <!-- Illustration section -->
+            <section class="illustration-section">
+                <img src="./assets/images/illustration.svg" alt="illustration-imag">
+            </section>
+        </div>
+        <!-- Footer -->
+        <footer class="login-footer">
+            <div class="copyright">© Copyright QLTSGeek 2020</div>
+            <div class="footer-links">
+                <a href="#" class="footer-link">Term & Condition</a>
+                <a href="#" class="footer-link">Privacy Policy</a>
+                <a href="#" class="footer-link">Help</a>
+            </div>
+            <div class="pagination-dots">
+                <div class="dot active"></div>
+                <div class="dot secondary"></div>
+                <div class="dot"></div>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // Toggle password visibility
+        const passwordToggle = document.querySelector('.password-toggle');
+        const passwordInput = document.querySelector('input[type="password"]');
+
+        passwordToggle.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            // Change the eye icon
+            const eyeIcontoggle = document.querySelector('.password-toggle');
+            
+            if (type === 'text') {
+                eyeIcontoggle.innerHTML = `<i class="fa-regular fa-eye-slash"></i>`
+            } else {
+                eyeIcontoggle.innerHTML = '<i class="fa-regular fa-eye"></i>'
+            }
+        });
+    </script>
+    
+</body>
+
+</html>

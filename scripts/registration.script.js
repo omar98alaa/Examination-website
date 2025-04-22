@@ -94,6 +94,6 @@ function submitForm(e) {
     localStorage.setItem("email", Email);
     localStorage.setItem("password", Password);
 
-    location.replace("login.html");
+    location.replace("login-page.html");
   }
 }

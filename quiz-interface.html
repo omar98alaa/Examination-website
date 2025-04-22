@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCT Mock Tests</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/quiz-interface.css">
+</head>
+<body>
+     <!-- Quiz header with title, progress, and actions -->
+     <header class="quiz-header">
+        <div class="quiz-title">
+            <h1>MCT Mock Tests</h1>
+            <p>Session 1</p>
+        </div>
+        
+        <div class="progress-container">
+            <div class="progress-percentage">20%</div>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <button class="btn btn-secondary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 4v16m8-8H4"/>
+                </svg>
+                For later
+            </button>
+            <button class="btn btn-secondary">
+                Mark to review
+            </button>
+        </div>
+        
+        <div class="timer">
+            <div class="timer-value">00:00 Min</div>
+            <div class="timer-label">Time left</div>
+        </div>
+    </header>
+    <!-- Main quiz container -->
+    <main class="quiz-container">
+        <!-- Question section -->
+        <section class="quiz-question">
+            <div class="question-number">Question 1</div>
+            <div class="question-text">
+                The Indian Contract Act 1872 came into force on.... The Indian Contract Act 1872 came into force on....
+            </div>
+            
+            <!-- Answer options -->
+            <div class="options-container">
+                <div class="option selected">
+                    <div class="option-indicator"></div>
+                    <div class="option-text">Option A</div>
+                    <div class="option-radio"></div>
+                </div>
+                
+                <div class="option">
+                    <div class="option-indicator"></div>
+                    <div class="option-text">Option B</div>
+                    <div class="option-radio"></div>
+                </div>
+                
+                <div class="option">
+                    <div class="option-indicator"></div>
+                    <div class="option-text">Option C</div>
+                    <div class="option-radio"></div>
+                </div>
+                
+                <div class="option">
+                    <div class="option-indicator"></div>
+                    <div class="option-text">Option D</div>
+                    <div class="option-radio"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Navigation buttons -->
+        <nav class="quiz-navigation">
+            <button class="nav-btn">
+                <i class="fa-solid fa-chevron-right"></i>
+                Previous
+            </button>
+            
+            <button class="finish-btn">Finish</button>
+            
+            <button class="nav-btn">
+                Next
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+        </nav>
+    </main>
+    
+    <script>
+        // Add interactivity to options
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', () => {
+                // Remove selected class from all options
+                document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+                // Add selected class to clicked option
+                option.classList.add('selected');
+            });
+        });
+        
+        // Timer functionality (placeholder)
+        let seconds = 0;
+        const timerElement = document.querySelector('.timer-value');
+        
+        function updateTimer() {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')} Min`;
+            seconds++;
+        }
+        
+        // Start timer
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --background-dark: rgb(33, 34, 54);
   --background-dark-secondary: rgb(40, 39, 70);
   --button-primary: rgb(133, 68, 255);
@@ -7,7 +7,7 @@
   --text-grey: rgb(139, 142, 157);
   --text-red: hsl(0, 100%, 45%);
   --border: rgb(54, 53, 84);
-}
+} */
 
 * {
   box-sizing: border-box;

@@ -1,0 +1,80 @@
+ /* CSS Variables for consistent theming */
+ :root {
+    /* Colors */
+    --primary-color: #8544ff;
+    --primary-light: #9966ff;
+    --secondry-color : #ffffff;
+    --accent-color: #33ffee;
+    --background-color: #f5f7fa;
+    --card-bg-color: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-third: #fff;
+    --border-color: #e0e0e0;
+    --text-red: hsl(0, 100%, 45%);
+    
+
+  --background-dark: rgb(33, 34, 54);
+  --background-dark-secondary: rgb(40, 39, 70);
+  --button-primary: rgb(133, 68, 255);
+  --button-secondary: transparent;
+  --text-white: rgb(235, 234, 230);
+  --text-grey: rgb(139, 142, 157);
+  --text-red: hsl(0, 100%, 45%);
+  --border: rgb(54, 53, 84);
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    
+    /* Font sizes */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.25rem;
+    --font-xl: 1.5rem;
+    
+    /* Border radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+}
+
+/* Dark mode theme */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primary-color: #8544ff;
+        --primary-light: #a377ff;
+        --secondry-color : #38009f;
+        --background-color: #1a1a2e;
+        --card-bg-color: #282846;
+        --text-primary: #f0f0f0;
+        --text-secondary: #b0b0b0;
+        --border-color: #444466;
+
+    
+    }
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--primary-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+.flex-row{
+    display: flex;
+}
