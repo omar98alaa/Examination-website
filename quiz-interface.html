@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MCT Mock Tests</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/quiz-interface.css">
 </head>
@@ -11,12 +11,12 @@
      <!-- Quiz header with title, progress, and actions -->
      <header class="quiz-header">
         <div class="quiz-title">
-            <h1>MCT Mock Tests</h1>
-            <p>Session 1</p>
+            <h1 id="quiz-title"></h1>
+            <p></p>
         </div>
         
         <div class="progress-container">
-            <div class="progress-percentage">20%</div>
+            <div class="progress-percentage"></div>
             <div class="progress-bar">
                 <div class="progress-fill"></div>
             </div>
@@ -29,8 +29,7 @@
                 </svg>
                 For later
             </button>
-            <button class="btn btn-secondary">
-                Mark to review
+            <button class="btn btn-secondary" id="review-question" onclick="MarkQuestion()">
             </button>
         </div>
         
@@ -40,37 +39,41 @@
         </div>
     </header>
     <!-- Main quiz container -->
-    <main class="quiz-container">
+    <main class="quiz-container" id="quiz-container">
+
+        <div class="loading" id="loading">
+            <p>Loading...</p>
+        </div>
+
         <!-- Question section -->
         <section class="quiz-question">
-            <div class="question-number">Question 1</div>
-            <div class="question-text">
-                The Indian Contract Act 1872 came into force on.... The Indian Contract Act 1872 came into force on....
+            <div class="question-number" id="question-number"></div>
+            <div class="question-text" id="question-text">
             </div>
             
             <!-- Answer options -->
             <div class="options-container">
-                <div class="option selected">
+                <div class="option" id="option-A-container">
                     <div class="option-indicator"></div>
-                    <div class="option-text">Option A</div>
+                    <div class="option-text" id="option-A"></div>
                     <div class="option-radio"></div>
                 </div>
                 
-                <div class="option">
+                <div class="option" id="option-B-container">
                     <div class="option-indicator"></div>
-                    <div class="option-text">Option B</div>
+                    <div class="option-text" id="option-B"></div>
                     <div class="option-radio"></div>
                 </div>
                 
-                <div class="option">
+                <div class="option" id="option-C-container">
                     <div class="option-indicator"></div>
-                    <div class="option-text">Option C</div>
+                    <div class="option-text" id="option-C"></div>
                     <div class="option-radio"></div>
                 </div>
                 
-                <div class="option">
+                <div class="option" id="option-D-container">
                     <div class="option-indicator"></div>
-                    <div class="option-text">Option D</div>
+                    <div class="option-text" id="option-D"></div>
                     <div class="option-radio"></div>
                 </div>
             </div>
@@ -78,45 +81,19 @@
         
         <!-- Navigation buttons -->
         <nav class="quiz-navigation">
-            <button class="nav-btn">
+            <button class="nav-btn" id="prev-btn">
                 <i class="fa-solid fa-chevron-right"></i>
                 Previous
             </button>
             
             <button class="finish-btn">Finish</button>
             
-            <button class="nav-btn">
+            <button class="nav-btn" id="next-btn">
                 Next
                 <i class="fa-solid fa-chevron-left"></i>
             </button>
         </nav>
     </main>
-    
-    <script>
-        // Add interactivity to options
-        document.querySelectorAll('.option').forEach(option => {
-            option.addEventListener('click', () => {
-                // Remove selected class from all options
-                document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-                // Add selected class to clicked option
-                option.classList.add('selected');
-            });
-        });
-        
-        // Timer functionality (placeholder)
-        let seconds = 0;
-        const timerElement = document.querySelector('.timer-value');
-        
-        function updateTimer() {
-            const minutes = Math.floor(seconds / 60);
-            const remainingSeconds = seconds % 60;
-            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')} Min`;
-            seconds++;
-        }
-        
-        // Start timer
-        updateTimer();
-        setInterval(updateTimer, 1000);
-    </script>
+    <script src="scripts/quiz-script.js"></script>
 </body>
 </html>

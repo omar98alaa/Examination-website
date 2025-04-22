@@ -42,14 +42,14 @@
                     </button>
                 </div>
 
-                <form class="login-form">
+                <form class="login-form" onsubmit="submitForm(event)">
                     <div class="form-group">
-                        <input type="email" class="form-input" placeholder="Your Email" required>
+                        <input type="email" id="email" class="form-input" placeholder="Your Email" required>
                     </div>
 
                     <div class="form-group">
                         <div class="password-input-container">
-                            <input type="password" class="form-input" placeholder="Password" required>
+                            <input type="password" id="password" class="form-input" placeholder="Password" required>
                             <span class="password-toggle">
                                 <i class="fa-regular fa-eye"></i>
                             </span>
@@ -57,7 +57,7 @@
                         <a href="#" class="forgot-password">Forgot password?</a>
                     </div>
 
-                    <button type="submit" class="login-btn">Log in</button>
+                    <button type="submit" class="login-btn">Start Exam</button>
                 </form>
             </section>
 
@@ -81,7 +81,6 @@
             </div>
         </footer>
     </main>
-
     <script>
         // Toggle password visibility
         const passwordToggle = document.querySelector('.password-toggle');
@@ -102,6 +101,7 @@
         });
     </script>
     
+    <script src="scripts/login-script.js"></script>
 </body>
 
 </html>
