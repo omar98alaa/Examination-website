@@ -1,0 +1,246 @@
+{
+  "ExamTitle": "Programming MCQ Exam",
+  "ExamDuration": "30",
+  "questions": [
+    {
+      "question": "What does HTML stand for?",
+      "a": "Hyper Text Markup Language",
+      "b": "High Tech Markup Language",
+      "c": "Hyperlinks and Text Markup Language",
+      "d": "Home Tool Markup Language",
+      "answer": "a"
+    },
+    {
+      "question": "Which language runs in a web browser?",
+      "a": "Java",
+      "b": "C",
+      "c": "Python",
+      "d": "JavaScript",
+      "answer": "d"
+    },
+    {
+      "question": "What does CSS stand for?",
+      "a": "Computer Style Sheets",
+      "b": "Creative Style Sheets",
+      "c": "Cascading Style Sheets",
+      "d": "Colorful Style Sheets",
+      "answer": "c"
+    },
+    {
+      "question": "Which of these is not a programming language?",
+      "a": "Ruby",
+      "b": "Python",
+      "c": "HTTP",
+      "d": "Java",
+      "answer": "c"
+    },
+    {
+      "question": "What is the correct way to declare a JavaScript variable?",
+      "a": "variable name;",
+      "b": "v name;",
+      "c": "var name;",
+      "d": "let name;",
+      "answer": "c"
+    },
+    {
+      "question": "Which symbol is used for single-line comments in Python?",
+      "a": "//",
+      "b": "/*",
+      "c": "#",
+      "d": "--",
+      "answer": "c"
+    },
+    {
+      "question": "What is the output of 'print(3 + 2 * 2)' in Python?",
+      "a": "10",
+      "b": "7",
+      "c": "3.5",
+      "d": "Error",
+      "answer": "b"
+    },
+    {
+      "question": "Which data structure uses FIFO (First In First Out) principle?",
+      "a": "Stack",
+      "b": "Queue",
+      "c": "Array",
+      "d": "Tree",
+      "answer": "b"
+    },
+    {
+      "question": "What does API stand for?",
+      "a": "Application Programming Interface",
+      "b": "Advanced Programming Interface",
+      "c": "Automated Programming Interface",
+      "d": "Application Process Integration",
+      "answer": "a"
+    },
+    {
+      "question": "Which operator is used for exponentiation in Python?",
+      "a": "^",
+      "b": "**",
+      "c": "*",
+      "d": "^^",
+      "answer": "b"
+    },
+    {
+      "question": "What is the correct file extension for Python files?",
+      "a": ".pt",
+      "b": ".py",
+      "c": ".pyt",
+      "d": ".python",
+      "answer": "b"
+    },
+    {
+      "question": "Which method adds an item to the end of a list in Python?",
+      "a": "append()",
+      "b": "add()",
+      "c": "push()",
+      "d": "insert()",
+      "answer": "a"
+    },
+    {
+      "question": "What does SQL stand for?",
+      "a": "Structured Query Language",
+      "b": "Simple Query Language",
+      "c": "Standard Query Language",
+      "d": "System Query Language",
+      "answer": "a"
+    },
+    {
+      "question": "Which loop checks the condition after executing the statements?",
+      "a": "for loop",
+      "b": "while loop",
+      "c": "do-while loop",
+      "d": "if-else",
+      "answer": "c"
+    },
+    {
+      "question": "What is the correct syntax to output 'Hello World' in Python?",
+      "a": "echo('Hello World')",
+      "b": "print('Hello World')",
+      "c": "console.log('Hello World')",
+      "d": "printf('Hello World')",
+      "answer": "b"
+    },
+    {
+      "question": "Which of these is not a JavaScript framework?",
+      "a": "React",
+      "b": "Angular",
+      "c": "Django",
+      "d": "Vue",
+      "answer": "c"
+    },
+    {
+      "question": "What is the correct way to create a function in JavaScript?",
+      "a": "function = myFunction()",
+      "b": "function myFunction()",
+      "c": "create myFunction()",
+      "d": "new function myFunction()",
+      "answer": "b"
+    },
+    {
+      "question": "Which of these is a NoSQL database?",
+      "a": "MySQL",
+      "b": "PostgreSQL",
+      "c": "MongoDB",
+      "d": "SQLite",
+      "answer": "c"
+    },
+    {
+      "question": "What does OOP stand for?",
+      "a": "Object-Oriented Programming",
+      "b": "Object-Optimized Programming",
+      "c": "Operational Object Programming",
+      "d": "Optional Object Protocol",
+      "answer": "a"
+    },
+    {
+      "question": "Which keyword is used to create a class in Python?",
+      "a": "class",
+      "b": "className",
+      "c": "def",
+      "d": "struct",
+      "answer": "a"
+    },
+    {
+      "question": "What is the index of the first element in an array?",
+      "a": "0",
+      "b": "1",
+      "c": "-1",
+      "d": "Depends on language",
+      "answer": "a"
+    },
+    {
+      "question": "Which HTML tag is used for the largest heading?",
+      "a": "<h6>",
+      "b": "<h1>",
+      "c": "<head>",
+      "d": "<heading>",
+      "answer": "b"
+    },
+    {
+      "question": "What does IDE stand for?",
+      "a": "Integrated Development Environment",
+      "b": "Interface Development Environment",
+      "c": "Integrated Design Environment",
+      "d": "Interface Design Environment",
+      "answer": "a"
+    },
+    {
+      "question": "Which of these is not a Python data type?",
+      "a": "list",
+      "b": "tuple",
+      "c": "array",
+      "d": "set",
+      "answer": "c"
+    },
+    {
+      "question": "What is the correct way to create an object in JavaScript?",
+      "a": "let obj = new Object()",
+      "b": "let obj = {}",
+      "c": "let obj = Object.create()",
+      "d": "All of the above",
+      "answer": "d"
+    },
+    {
+      "question": "Which method converts JSON string to a JavaScript object?",
+      "a": "JSON.parse()",
+      "b": "JSON.stringify()",
+      "c": "JSON.convert()",
+      "d": "JSON.toObject()",
+      "answer": "a"
+    },
+    {
+      "question": "What is Git?",
+      "a": "A programming language",
+      "b": "A version control system",
+      "c": "An IDE",
+      "d": "A database system",
+      "answer": "b"
+    },
+    {
+      "question": "Which symbol is used to access object properties in JavaScript?",
+      "a": "->",
+      "b": "::",
+      "c": ".",
+      "d": ":",
+      "answer": "c"
+    },
+    {
+      "question": "What is the output of 'console.log(typeof null)' in JavaScript?",
+      "a": "null",
+      "b": "undefined",
+      "c": "object",
+      "d": "string",
+      "answer": "c"
+    },
+    {
+      "question": "Which of these is not a valid variable name in Python?",
+      "a": "my_var",
+      "b": "_myvar",
+      "c": "1myvar",
+      "d": "myVar",
+      "answer": "c"
+    }
+  ]
+}
