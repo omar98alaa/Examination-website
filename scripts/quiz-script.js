@@ -12,7 +12,10 @@ var remainingSeconds;
 var timerInterval;
 
 // DOM elements
+var quizWrapper = document.getElementById("quiz-wrapper");
 var examContainer = document.getElementById("quiz-container");
+var resultContainer = document.getElementById("result-container");
+var scoreContainer = document.getElementById("score-container");
 var questionText = document.getElementById("question-text");
 var questionNumber = document.getElementById("question-number");
 var questionTimer = document.querySelector(".timer-value");
@@ -28,6 +31,7 @@ var optionDContainer = document.getElementById("option-D-container");
 var reviewQuestionButton = document.getElementById("review-question");
 var prevBtn = document.getElementById("prev-btn");
 var nextBtn = document.getElementById("next-btn");
+var finishBtn = document.getElementById("finish-btn");
 
 document.addEventListener("DOMContentLoaded", function () {
   // Load exam data
@@ -49,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Shuffle the questions
-      shuffledExam = shuffleArray([...ExamArray]);
+      shuffledExam = shuffleArray(ExamArray);
       userAnswers = new Array(shuffledExam.length).fill(null);
       userMarkedQuestions = new Array(shuffledExam.length).fill(false);
       totalQuestions = shuffledExam.length;
@@ -63,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       // Start timer
       updateTimer();
-      setInterval(updateTimer, 1000);
+      timerInterval = setInterval(updateTimer, 1000);
 
       // Hide loading spinner
       document.getElementById("loading").style.display = "none";
@@ -92,6 +96,20 @@ function renderExamUI(questions) {
       updateNavigationButtons();
     }
   });
+
+  finishBtn.addEventListener("click", function () {
+    showResults();
+  });
+
+  // Set up click handlers for each option
+  optionAContainer.onclick = () =>
+    selectOption(currentQuestionIndex, "a", optionAContainer);
+  optionBContainer.onclick = () =>
+    selectOption(currentQuestionIndex, "b", optionBContainer);
+  optionCContainer.onclick = () =>
+    selectOption(currentQuestionIndex, "c", optionCContainer);
+  optionDContainer.onclick = () =>
+    selectOption(currentQuestionIndex, "d", optionDContainer);
 
   // initialize progress bar
   updateProgress();
@@ -132,12 +150,6 @@ function showQuestion(index) {
         break;
     }
   }
-
-  // Set up click handlers for each option
-  optionA.onclick = () => selectOption(index, "a", optionAContainer);
-  optionB.onclick = () => selectOption(index, "b", optionBContainer);
-  optionC.onclick = () => selectOption(index, "c", optionCContainer);
-  optionD.onclick = () => selectOption(index, "d", optionDContainer);
 }
 
 function MarkQuestion() {
@@ -193,7 +205,7 @@ function updateProgress() {
   progressPercentage = Math.round((answeredQuestions / totalQuestions) * 100);
   document.querySelector(
     ".progress-percentage"
-  ).textContent = `${progressPercentage}%`;
+  ).textContent = `${answeredQuestions} / ${totalQuestions}`;
   document.querySelector(
     ".progress-fill"
   ).style.width = `${progressPercentage}%`;
@@ -201,12 +213,46 @@ function updateProgress() {
 
 function updateNavigationButtons() {
   prevBtn.disabled = currentQuestionIndex === 0;
-  nextBtn.textContent =
-    currentQuestionIndex === shuffledExam.length - 1 ? "Submit" : "Next";
+  nextBtn.disabled = currentQuestionIndex === shuffledExam.length - 1;
 }
 
 // Show design
-function showResults() {}
+function showResults() {
+  // Calculate result
+  var result = calculateResult();
+  var numQuestions = shuffledExam.length;
+  var percent = result / numQuestions;
+
+  // Stop timer
+  stopTimer();
+
+  // Show result
+  var color = percent < 0.5 ? "var(--text-red)" : "var(--text-green)";
+
+  scoreContainer.innerText = `${result} / ${shuffledExam.length}`;
+  scoreContainer.style.backgroundImage = `radial-gradient(
+      closest-side,
+      var(--background-color) 89%,
+      transparent 90% 100%
+    ),
+    conic-gradient(${color} ${percent * 360}deg, var(--card-bg-color) 0deg)`;
+
+  quizWrapper.classList.add("hidden");
+  resultContainer.classList.remove("hidden");
+}
+
+// Calculate results
+function calculateResult() {
+  var result = 0;
+
+  shuffledExam.forEach((question, index) => {
+    if (question.answer === userAnswers[index]) {
+      result++;
+    }
+  });
+
+  return result;
+}
 
 // Fisher-Yates shuffle algorithm
 function shuffleArray(array) {
@@ -219,6 +265,15 @@ function shuffleArray(array) {
 }
 
 function updateTimer() {
+  // Stop the timer when time is up
+  if (remainingSeconds < 0) {
+    stopTimer();
+
+    //  auto-submit
+    showResults();
+    return;
+  }
+
   // Calculate minutes and seconds
   const minutes = Math.floor(remainingSeconds / 60);
   const seconds = remainingSeconds % 60;
@@ -228,17 +283,15 @@ function updateTimer() {
     .toString()
     .padStart(2, "0")} Min`;
 
+  if (
+    questionTimer.style.color !== "orange" &&
+    minutes < examDurationMinutes / 2
+  ) {
+    questionTimer.style.color = "orange";
+  }
+
   // Decrement the remaining time
   remainingSeconds--;
-
-  // Stop the timer when time is up
-  if (remainingSeconds < 0) {
-    clearInterval(timerInterval);
-    questionTimer.textContent = "00:00 Min";
-    //
-    //  auto-submit here
-    // showResults();
-  }
 }
 
 // Add this to clean up the timer when needed
