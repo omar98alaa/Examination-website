@@ -1,4 +1,7 @@
   /* Login container */
+  body{
+    min-height: 100vh;
+  }
   .login-container {
     background-color: var(--card-bg-color);
     border-radius: var(--border-radius-lg);
