@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/question-marks-panel.css">
+    <link rel="stylesheet" href="./styles/quiz-interface.css">
+
+</head>
+
+<body>
+    <div id="quiz-wrapper">
+        <!-- Quiz header with title, progress, and actions -->
+        <header class="quiz-header">
+            <div class="quiz-title">
+                <h1 id="quiz-title"></h1>
+                <p></p>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill">
+                        <div class="progress-percentage"></div>
+                    </div>
+                </div>
+            </div>
+
+            <button id="finish-btn" class="finish-btn">Finish</button>
+
+            <div class="timer">
+                <div class="timer-value">00:00 Min</div>
+                <div class="timer-label">Time left</div>
+            </div>
+        </header>
+        <!-- Main quiz container -->
+        <main class="quiz-container" id="quiz-container">
+
+            <div class="loading" id="loading">
+                <p>Loading...</p>
+            </div>
+
+            <!-- Question section -->
+            <section class="quiz-question">
+                <div class="question-number" id="question-number"></div>
+                <div class="question-text" id="question-text">
+                </div>
+
+                <!-- Answer options -->
+                <div class="options-container">
+                    <div class="option" id="option-A-container">
+                        <div class="option-indicator"></div>
+                        <div class="option-text" id="option-A"></div>
+                        <div class="option-radio"></div>
+                    </div>
+
+                    <div class="option" id="option-B-container">
+                        <div class="option-indicator"></div>
+                        <div class="option-text" id="option-B"></div>
+                        <div class="option-radio"></div>
+                    </div>
+
+                    <div class="option" id="option-C-container">
+                        <div class="option-indicator"></div>
+                        <div class="option-text" id="option-C"></div>
+                        <div class="option-radio"></div>
+                    </div>
+
+                    <div class="option" id="option-D-container">
+                        <div class="option-indicator"></div>
+                        <div class="option-text" id="option-D"></div>
+                        <div class="option-radio"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation buttons -->
+            <nav class="quiz-navigation">
+                <button class="nav-btn" id="prev-btn">
+                    <i class="fa-solid fa-chevron-left"></i>
+                    <span>Previous</span>
+                </button>
+
+                <button class="btn btn-secondary" id="review-question" onclick="MarkQuestion()">
+                </button>
+
+                <button class="nav-btn" id="next-btn">
+                    <span>Next</span>
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </nav>
+        </main>
+
+
+        <!-- question-marks -->
+        <!-- burger Menu -->
+        <button class="burger-menu hidden">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <!-- burger Menu -->
+        <div class="qContainer">
+            <div class="question-marks-header">
+                <div>QMarks</div>
+            </div>
+            <div class="question-marks-container">
+                <!-- Header section -->
+                <!-- Question grid -->
+                <div class="question-grid">
+                    <!-- question-items -->
+                    <!-- question-items -->
+                </div>
+
+                <!-- Blue side border -->
+
+                <!-- Status legend -->
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color marked"></div>
+                    <div class="legend-text">Marked</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color answered"></div>
+                    <div class="legend-text">Answered</div>
+                </div>
+            </div>
+        </div>
+        <!-- Question-Marks -->
+    </div>
+
+    <div id="result-container" class="result-container hidden">
+        <p>Answers submitted. You scored:</p>
+        <div id="score-container">0 / 0</div>
+    </div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
+        integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="scripts/quiz-script.js"></script>
+    <script src="./scripts/question-marks-panel.js"></script>
+</body>
+
+</html>
