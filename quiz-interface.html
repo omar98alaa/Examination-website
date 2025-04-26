@@ -9,7 +9,9 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/question-marks-panel.css">
     <link rel="stylesheet" href="./styles/quiz-interface.css">
+
 </head>
 
 <body>
@@ -18,7 +20,7 @@
         <header class="quiz-header">
             <div class="quiz-title">
                 <h1 id="quiz-title"></h1>
-                <p></p>
+                <p id="user-name"></p>
             </div>
 
             <div class="progress-container">
@@ -93,6 +95,42 @@
                 </button>
             </nav>
         </main>
+
+
+        <!-- question-marks -->
+        <!-- burger Menu -->
+        <button class="burger-menu hidden">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <!-- burger Menu -->
+        <div class="qContainer">
+            <div class="question-marks-header">
+                <div>QMarks</div>
+            </div>
+            <div class="question-marks-container">
+                <!-- Header section -->
+                <!-- Question grid -->
+                <div class="question-grid">
+                    <!-- question-items -->
+                    <!-- question-items -->
+                </div>
+
+                <!-- Blue side border -->
+
+                <!-- Status legend -->
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color marked"></div>
+                    <div class="legend-text">Marked</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color answered"></div>
+                    <div class="legend-text">Answered</div>
+                </div>
+            </div>
+        </div>
+        <!-- Question-Marks -->
     </div>
 
     <div id="result-container" class="result-container hidden">
@@ -100,10 +138,14 @@
         <div id="score-container">0 / 0</div>
     </div>
 
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"
         integrity="sha512-b+nQTCdtTBIRIbraqNEwsjB6UvL3UEMkXnhzd8awtCYh0Kcsjl9uEgwVFVbhoj3uu1DO1ZMacNvLoyJJiNfcvg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="scripts/quiz-script.js"></script>
+    <script src="./scripts/question-marks-panel.js"></script>
 </body>
 
 </html>

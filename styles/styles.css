@@ -4,14 +4,15 @@
   --primary-color: #8544ff;
   --primary-light: #9966ff;
   --secondry-color: #ffffff;
-  --accent-color: #33ffee;
+  --accent-color: #00d9ff;
+  --marked-color: #ffff00;
   --background-color: #f5f7fa;
   --card-bg-color: #ffffff;
   --text-primary: #333333;
   --text-secondary: #666666;
   --text-third: #fff;
   --text-red: #e60000;
-  --text-green: #00c800;
+  --text-green: #00ff73;
   --border-color: #e0e0e0;
 
   /* Spacing */
@@ -44,8 +45,6 @@
     --card-bg-color: #282846;
     --text-primary: #f0f0f0;
     --text-secondary: #b0b0b0;
-    --text-red: #e60000;
-    --text-green: #00c800;
     --border-color: #444466;
   }
 }
@@ -63,7 +62,6 @@ body {
   background-color: var(--primary-color);
   color: var(--text-primary);
   line-height: 1.6;
-  position: relative;
   overflow-x: hidden;
 }
 .flex-row {

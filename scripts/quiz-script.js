@@ -10,6 +10,7 @@ var progressPercentage = 0;
 var examDurationMinutes;
 var remainingSeconds;
 var timerInterval;
+var QmarkItems;
 
 // DOM elements
 var quizWrapper = document.getElementById("quiz-wrapper");
@@ -32,6 +33,9 @@ var reviewQuestionButton = document.getElementById("review-question");
 var prevBtn = document.getElementById("prev-btn");
 var nextBtn = document.getElementById("next-btn");
 var finishBtn = document.getElementById("finish-btn");
+var QMarks = document.querySelector('.question-grid');
+var Username = document.getElementById('user-name');
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Load exam data
@@ -77,8 +81,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Render the complete exam UI after questions are loaded
 function renderExamUI(questions) {
+  // Show The user Name
+  // Username.textContent = `Welcome ${localStorage.getItem('userName')}`;
+  
+
   // Display current question
   showQuestion(currentQuestionIndex);
+
+  //Display Questions Marks
+  showQMarks()
 
   // Set up event listeners for navigation
   prevBtn.addEventListener("click", function () {
@@ -118,6 +129,24 @@ function renderExamUI(questions) {
   updateNavigationButtons();
 }
 
+
+function showQMarks() {
+  for (var i = 0; i < totalQuestions; i++) {
+    const newElement = document.createElement('button');
+    newElement.id = i;
+    newElement.innerHTML = i + 1;
+    newElement.classList.add('question-item', 'not-attempted')
+    newElement.addEventListener('click', function () {
+      currentQuestionIndex = Number(this.id);
+      showQuestion(currentQuestionIndex);
+      updateNavigationButtons();
+    })
+    QMarks.appendChild(newElement);
+  }
+  QmarkItems = document.querySelectorAll(`.question-item`)
+}
+
+
 function showQuestion(index) {
   questionNumber.textContent = "Question " + (index + 1);
   questionText.textContent = shuffledExam[index].question;
@@ -131,6 +160,7 @@ function showQuestion(index) {
   optionCContainer.classList.remove("selected");
   optionDContainer.classList.remove("selected");
   updateMarkButtonState();
+
 
   // Check if user had previously selected an answer for this question
   if (userAnswers[index]) {
@@ -160,12 +190,17 @@ function MarkQuestion() {
   // Update the button and question appearance
   updateMarkButtonState();
   updateQuestionMarkedState();
+  updateQmarkItemsState();
 }
 
 function updateMarkButtonState() {
   if (userMarkedQuestions[currentQuestionIndex]) {
+
     reviewQuestionButton.textContent = "Unmark";
     reviewQuestionButton.classList.add("marked-question");
+    QmarkItems[currentQuestionIndex].classList.add("marked")
+    QmarkItems[currentQuestionIndex].classList.remove('not-attempted')
+
   } else {
     reviewQuestionButton.textContent = "Mark";
     reviewQuestionButton.classList.remove("marked-question");
@@ -180,6 +215,18 @@ function updateQuestionMarkedState() {
   }
 }
 
+function updateQmarkItemsState() {
+  const QmarkItemsClassList = QmarkItems[currentQuestionIndex].classList;
+  if (userMarkedQuestions[currentQuestionIndex]) {
+    QmarkItemsClassList.add("marked")
+    QmarkItemsClassList.remove('not-attempted')
+
+  } else {
+    QmarkItemsClassList.remove("marked")
+    QmarkItemsClassList.add('not-attempted')
+    updateQMarkItemsAnsState()
+  }
+}
 // Update the selectOption function
 function selectOption(questionIndex, optionValue, optionElement) {
   optionAContainer.classList.remove("selected");
@@ -198,8 +245,27 @@ function selectOption(questionIndex, optionValue, optionElement) {
     answeredQuestions++;
     updateProgress();
   }
+  updateQMarkItemsAnsState()
 }
 
+function updateQMarkItemsAnsState() {
+  // Track if this is a previous answer
+  wasPreviouslyAnswered = userAnswers[currentQuestionIndex] !== null;
+  console.log(wasPreviouslyAnswered)
+  // Update QMarkItem if this is a previous answer
+  if (wasPreviouslyAnswered) {
+    QmarkItemsClassList = QmarkItems[currentQuestionIndex].classList;
+    QmarkItemsClassList.add("answered")
+
+    if (QmarkItemsClassList.contains('not-attempted')) {
+      QmarkItemsClassList.remove('not-attempted')
+    } 
+    if (QmarkItemsClassList.contains('marked')) {
+      QmarkItemsClassList.remove('marked')
+    }
+  }
+
+}
 // Add progress update function
 function updateProgress() {
   progressPercentage = Math.round((answeredQuestions / totalQuestions) * 100);
@@ -238,7 +304,7 @@ function showResults() {
     conic-gradient(${color} ${percent * 360}deg, var(--card-bg-color) 0deg)`;
 
   quizWrapper.classList.add("hidden");
-  resultContainer.classList.remove("hidden");
+  resultContainer.classList.remove("hidden"); 
 }
 
 // Calculate results

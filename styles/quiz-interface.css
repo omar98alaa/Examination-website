@@ -40,6 +40,7 @@ body {
   max-width: 800px;
   padding: var(--spacing-xl);
   margin: 0 auto;
+  margin-top: 1rem;
 }
 
 /* Header section */
@@ -52,7 +53,7 @@ body {
   justify-content: space-between;
   align-items: center;
   border-radius: var(--border-radius-lg);
-  margin-top: 40px;
+  margin-top: 5rem;
 }
 
 .quiz-title {
@@ -326,6 +327,7 @@ body {
   }
 
   .quiz-header {
+    width: 80%;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--spacing-md);
