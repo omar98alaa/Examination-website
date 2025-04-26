@@ -124,12 +124,13 @@
 /* Status indicators */
 .question-item.answered {
   background-color: var(--text-green);
-  color: white;
+  color: black;
 }
 
 .question-item.marked {
   background-color: var(--marked-color);
-  color: white;
+  color: black;
+
 }
 
 .question-item.not-attempted {

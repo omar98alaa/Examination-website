@@ -10,6 +10,7 @@ var progressPercentage = 0;
 var examDurationMinutes;
 var remainingSeconds;
 var timerInterval;
+var QmarkItems;
 
 // DOM elements
 var quizWrapper = document.getElementById("quiz-wrapper");
@@ -32,7 +33,8 @@ var reviewQuestionButton = document.getElementById("review-question");
 var prevBtn = document.getElementById("prev-btn");
 var nextBtn = document.getElementById("next-btn");
 var finishBtn = document.getElementById("finish-btn");
-var QmarkItems;
+var QMarks = document.querySelector('.question-grid');
+var Username = document.getElementById('user-name');
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -79,6 +81,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Render the complete exam UI after questions are loaded
 function renderExamUI(questions) {
+  // Show The user Name
+  // Username.textContent = `Welcome ${localStorage.getItem('userName')}`;
+  
+
   // Display current question
   showQuestion(currentQuestionIndex);
 
@@ -125,13 +131,16 @@ function renderExamUI(questions) {
 
 
 function showQMarks() {
-
-  var QMarks = document.querySelector('.question-grid')
   for (var i = 0; i < totalQuestions; i++) {
-    const newElement = document.createElement('div')
+    const newElement = document.createElement('button');
     newElement.id = i;
-    newElement.innerHTML = i + 1
+    newElement.innerHTML = i + 1;
     newElement.classList.add('question-item', 'not-attempted')
+    newElement.addEventListener('click', function () {
+      currentQuestionIndex = Number(this.id);
+      showQuestion(currentQuestionIndex);
+      updateNavigationButtons();
+    })
     QMarks.appendChild(newElement);
   }
   QmarkItems = document.querySelectorAll(`.question-item`)
