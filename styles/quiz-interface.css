@@ -16,8 +16,8 @@ body {
   border-radius: var(--border-radius-lg);
   width: 100%;
   max-width: 800px;
-  padding: var(--spacing-xl);
-  margin: 20% auto;
+  padding: 5rem var(--spacing-xl);
+  margin: 10rem auto;
 }
 
 #score-container {
@@ -70,6 +70,7 @@ body {
 .quiz-title p {
   font-size: var(--font-sm);
   color: var(--text-secondary);
+  text-transform: capitalize;
 }
 
 /* Progress bar */
