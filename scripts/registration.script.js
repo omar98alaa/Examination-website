@@ -93,6 +93,8 @@ function submitForm(e) {
   if (FirstName && LastName && Email && Password && PassConfirmation) {
     localStorage.setItem("email", Email);
     localStorage.setItem("password", Password);
+    localStorage.setItem("firstName", FirstName);
+    localStorage.setItem("lastName", LastName);
 
     location.replace("login-page.html");
   }
