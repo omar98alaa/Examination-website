@@ -96,6 +96,6 @@ function submitForm(e) {
     localStorage.setItem("firstName", FirstName);
     localStorage.setItem("lastName", LastName);
 
-    location.replace("login-page.html");
+    location.replace("index.html");
   }
 }
